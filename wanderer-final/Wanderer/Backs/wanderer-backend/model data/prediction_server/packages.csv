@@ -1,0 +1,151 @@
+package_id,name,location,base_price,duration,description
+101,Package 1 - Cultural,Annapurna Circuit,673.0,9,Immerse yourself in local traditions.
+102,Package 2 - Luxury,Everest Base Camp,891.0,10,Pamper yourself with exclusive amenities.
+103,Package 3 - Family-Friendly,Dhulikhel,1925.0,15,Fun-filled experiences for the whole family.
+104,Package 4 - Luxury,Kathmandu,1393.0,11,Pamper yourself with exclusive amenities.
+105,Package 5 - Eco-Tourism,Kathmandu,774.0,7,Explore pristine landscapes responsibly.
+106,Package 6 - Eco-Tourism,Annapurna Circuit,987.0,10,Connect with nature in a sustainable way.
+107,Package 7 - Adventure,Everest Base Camp,2435.0,12,Experience the ultimate outdoor adventures.
+108,Package 8 - Eco-Tourism,Nagarkot,1086.0,6,Perfect for eco-conscious travelers.
+109,Package 9 - Luxury,Dhulikhel,1011.0,14,Pamper yourself with exclusive amenities.
+110,Package 10 - Adventure,Everest Base Camp,819.0,6,Thrilling activities for adrenaline seekers.
+111,Package 11 - Luxury,Everest Base Camp,1654.0,12,Pamper yourself with exclusive amenities.
+112,Package 12 - Eco-Tourism,Kathmandu,1237.0,11,Connect with nature in a sustainable way.
+113,Package 13 - Luxury,Nagarkot,889.0,9,Pamper yourself with exclusive amenities.
+114,Package 14 - Family-Friendly,Chitwan,821.0,14,Create unforgettable memories together.
+115,Package 15 - Adventure,Annapurna Circuit,963.0,5,Experience the ultimate outdoor adventures.
+116,Package 16 - Cultural,Chitwan,2922.0,3,Explore historic landmarks and heritage sites.
+117,Package 17 - Cultural,Pokhara,1529.0,3,Explore historic landmarks and heritage sites.
+118,Package 18 - Cultural,Everest Base Camp,1230.0,13,Immerse yourself in local traditions.
+119,Package 19 - Eco-Tourism,Dhulikhel,1530.0,7,Connect with nature in a sustainable way.
+120,Package 20 - Cultural,Dhulikhel,1994.0,13,Explore historic landmarks and heritage sites.
+121,Package 21 - Adventure,Lumbini,761.0,9,Thrilling activities for adrenaline seekers.
+122,Package 22 - Adventure,Kathmandu,2303.0,7,Experience the ultimate outdoor adventures.
+123,Package 23 - Family-Friendly,Chitwan,1927.0,8,Safe and engaging activities for all ages.
+124,Package 24 - Family-Friendly,Everest Base Camp,2125.0,9,Fun-filled experiences for the whole family.
+125,Package 25 - Adventure,Nagarkot,2398.0,8,Experience the ultimate outdoor adventures.
+126,Package 26 - Luxury,Pokhara,889.0,12,Pamper yourself with exclusive amenities.
+127,Package 27 - Family-Friendly,Lumbini,2094.0,8,Fun-filled experiences for the whole family.
+128,Package 28 - Cultural,Nagarkot,2308.0,10,Immerse yourself in local traditions.
+129,Package 29 - Adventure,Chitwan,1506.0,10,Experience the ultimate outdoor adventures.
+130,Package 30 - Eco-Tourism,Chitwan,1630.0,9,Explore pristine landscapes responsibly.
+131,Package 31 - Eco-Tourism,Pokhara,1331.0,11,Explore pristine landscapes responsibly.
+132,Package 32 - Luxury,Pokhara,1222.0,3,Indulge in comfort and style.
+133,Package 33 - Luxury,Annapurna Circuit,1949.0,15,A lavish experience like no other.
+134,Package 34 - Cultural,Dhulikhel,1851.0,3,A journey through rich cultural landscapes.
+135,Package 35 - Adventure,Everest Base Camp,1959.0,9,Thrilling activities for adrenaline seekers.
+136,Package 36 - Cultural,Everest Base Camp,728.0,8,Immerse yourself in local traditions.
+137,Package 37 - Cultural,Nagarkot,1246.0,3,A journey through rich cultural landscapes.
+138,Package 38 - Adventure,Dhulikhel,1662.0,8,Thrilling activities for adrenaline seekers.
+139,Package 39 - Cultural,Pokhara,1004.0,13,Explore historic landmarks and heritage sites.
+140,Package 40 - Family-Friendly,Lumbini,2863.0,7,Safe and engaging activities for all ages.
+141,Package 41 - Cultural,Chitwan,1997.0,3,Explore historic landmarks and heritage sites.
+142,Package 42 - Family-Friendly,Annapurna Circuit,2705.0,12,Safe and engaging activities for all ages.
+143,Package 43 - Adventure,Dhulikhel,2089.0,3,Thrilling activities for adrenaline seekers.
+144,Package 44 - Cultural,Dhulikhel,2665.0,7,Immerse yourself in local traditions.
+145,Package 45 - Luxury,Chitwan,1121.0,13,Indulge in comfort and style.
+146,Package 46 - Family-Friendly,Pokhara,2783.0,12,Fun-filled experiences for the whole family.
+147,Package 47 - Adventure,Pokhara,532.0,6,Discover breathtaking trails and challenges.
+148,Package 48 - Luxury,Pokhara,2246.0,8,Pamper yourself with exclusive amenities.
+149,Package 49 - Luxury,Everest Base Camp,811.0,15,Indulge in comfort and style.
+150,Package 50 - Family-Friendly,Pokhara,2052.0,6,Fun-filled experiences for the whole family.
+151,Package 51 - Cultural,Nagarkot,2826.0,3,Immerse yourself in local traditions.
+152,Package 52 - Family-Friendly,Pokhara,1201.0,9,Safe and engaging activities for all ages.
+153,Package 53 - Luxury,Lumbini,2041.0,9,Indulge in comfort and style.
+154,Package 54 - Luxury,Everest Base Camp,912.0,14,Pamper yourself with exclusive amenities.
+155,Package 55 - Cultural,Pokhara,1312.0,8,Explore historic landmarks and heritage sites.
+156,Package 56 - Family-Friendly,Nagarkot,2891.0,10,Fun-filled experiences for the whole family.
+157,Package 57 - Cultural,Pokhara,684.0,10,Immerse yourself in local traditions.
+158,Package 58 - Eco-Tourism,Pokhara,598.0,8,Explore pristine landscapes responsibly.
+159,Package 59 - Cultural,Chitwan,2746.0,9,A journey through rich cultural landscapes.
+160,Package 60 - Family-Friendly,Kathmandu,2272.0,4,Safe and engaging activities for all ages.
+161,Package 61 - Adventure,Annapurna Circuit,2609.0,14,Experience the ultimate outdoor adventures.
+162,Package 62 - Family-Friendly,Everest Base Camp,597.0,14,Create unforgettable memories together.
+163,Package 63 - Eco-Tourism,Nagarkot,2949.0,10,Explore pristine landscapes responsibly.
+164,Package 64 - Cultural,Kathmandu,2370.0,4,Immerse yourself in local traditions.
+165,Package 65 - Cultural,Nagarkot,1943.0,7,A journey through rich cultural landscapes.
+166,Package 66 - Luxury,Everest Base Camp,2832.0,8,Indulge in comfort and style.
+167,Package 67 - Eco-Tourism,Kathmandu,2132.0,15,Connect with nature in a sustainable way.
+168,Package 68 - Eco-Tourism,Everest Base Camp,2847.0,4,Connect with nature in a sustainable way.
+169,Package 69 - Eco-Tourism,Nagarkot,2603.0,10,Connect with nature in a sustainable way.
+170,Package 70 - Cultural,Lumbini,1313.0,3,Immerse yourself in local traditions.
+171,Package 71 - Luxury,Lumbini,2314.0,4,A lavish experience like no other.
+172,Package 72 - Adventure,Pokhara,2094.0,14,Experience the ultimate outdoor adventures.
+173,Package 73 - Cultural,Kathmandu,2717.0,13,Explore historic landmarks and heritage sites.
+174,Package 74 - Adventure,Pokhara,1781.0,10,Experience the ultimate outdoor adventures.
+175,Package 75 - Family-Friendly,Pokhara,508.0,14,Fun-filled experiences for the whole family.
+176,Package 76 - Luxury,Everest Base Camp,994.0,15,A lavish experience like no other.
+177,Package 77 - Cultural,Chitwan,1528.0,7,Explore historic landmarks and heritage sites.
+178,Package 78 - Adventure,Kathmandu,2979.0,3,Thrilling activities for adrenaline seekers.
+179,Package 79 - Eco-Tourism,Nagarkot,2386.0,6,Perfect for eco-conscious travelers.
+180,Package 80 - Family-Friendly,Everest Base Camp,1770.0,6,Safe and engaging activities for all ages.
+181,Package 81 - Luxury,Pokhara,960.0,12,Indulge in comfort and style.
+182,Package 82 - Cultural,Nagarkot,1223.0,6,Explore historic landmarks and heritage sites.
+183,Package 83 - Family-Friendly,Chitwan,1741.0,11,Safe and engaging activities for all ages.
+184,Package 84 - Eco-Tourism,Nagarkot,2794.0,5,Connect with nature in a sustainable way.
+185,Package 85 - Adventure,Annapurna Circuit,1473.0,14,Thrilling activities for adrenaline seekers.
+186,Package 86 - Family-Friendly,Everest Base Camp,717.0,5,Create unforgettable memories together.
+187,Package 87 - Eco-Tourism,Pokhara,2335.0,11,Perfect for eco-conscious travelers.
+188,Package 88 - Family-Friendly,Kathmandu,669.0,12,Fun-filled experiences for the whole family.
+189,Package 89 - Luxury,Nagarkot,585.0,6,Pamper yourself with exclusive amenities.
+190,Package 90 - Cultural,Pokhara,660.0,4,Immerse yourself in local traditions.
+191,Package 91 - Luxury,Kathmandu,1204.0,6,Pamper yourself with exclusive amenities.
+192,Package 92 - Eco-Tourism,Everest Base Camp,1716.0,9,Connect with nature in a sustainable way.
+193,Package 93 - Luxury,Chitwan,2813.0,13,Indulge in comfort and style.
+194,Package 94 - Cultural,Annapurna Circuit,1896.0,10,Explore historic landmarks and heritage sites.
+195,Package 95 - Eco-Tourism,Annapurna Circuit,1929.0,10,Explore pristine landscapes responsibly.
+196,Package 96 - Eco-Tourism,Kathmandu,1396.0,9,Connect with nature in a sustainable way.
+197,Package 97 - Eco-Tourism,Nagarkot,2091.0,8,Perfect for eco-conscious travelers.
+198,Package 98 - Luxury,Lumbini,2728.0,10,A lavish experience like no other.
+199,Package 99 - Eco-Tourism,Dhulikhel,2888.0,11,Perfect for eco-conscious travelers.
+200,Package 100 - Eco-Tourism,Kathmandu,1810.0,6,Explore pristine landscapes responsibly.
+201,Package 101 - Eco-Tourism,Nagarkot,2189.0,5,Connect with nature in a sustainable way.
+202,Package 102 - Luxury,Kathmandu,1789.0,6,Indulge in comfort and style.
+203,Package 103 - Family-Friendly,Chitwan,1057.0,13,Fun-filled experiences for the whole family.
+204,Package 104 - Family-Friendly,Pokhara,1109.0,8,Fun-filled experiences for the whole family.
+205,Package 105 - Eco-Tourism,Dhulikhel,2799.0,3,Explore pristine landscapes responsibly.
+206,Package 106 - Family-Friendly,Annapurna Circuit,951.0,12,Fun-filled experiences for the whole family.
+207,Package 107 - Eco-Tourism,Annapurna Circuit,1090.0,3,Connect with nature in a sustainable way.
+208,Package 108 - Family-Friendly,Chitwan,2068.0,7,Safe and engaging activities for all ages.
+209,Package 109 - Eco-Tourism,Chitwan,2392.0,7,Perfect for eco-conscious travelers.
+210,Package 110 - Adventure,Kathmandu,2125.0,12,Experience the ultimate outdoor adventures.
+211,Package 111 - Cultural,Pokhara,2228.0,10,A journey through rich cultural landscapes.
+212,Package 112 - Eco-Tourism,Chitwan,752.0,5,Explore pristine landscapes responsibly.
+213,Package 113 - Adventure,Nagarkot,1493.0,5,Thrilling activities for adrenaline seekers.
+214,Package 114 - Eco-Tourism,Dhulikhel,2722.0,9,Perfect for eco-conscious travelers.
+215,Package 115 - Eco-Tourism,Nagarkot,744.0,4,Perfect for eco-conscious travelers.
+216,Package 116 - Cultural,Chitwan,592.0,14,A journey through rich cultural landscapes.
+217,Package 117 - Luxury,Annapurna Circuit,1834.0,4,A lavish experience like no other.
+218,Package 118 - Luxury,Pokhara,774.0,4,A lavish experience like no other.
+219,Package 119 - Cultural,Dhulikhel,840.0,3,Explore historic landmarks and heritage sites.
+220,Package 120 - Cultural,Dhulikhel,2602.0,14,Explore historic landmarks and heritage sites.
+221,Package 121 - Adventure,Annapurna Circuit,757.0,9,Discover breathtaking trails and challenges.
+222,Package 122 - Adventure,Dhulikhel,1375.0,11,Discover breathtaking trails and challenges.
+223,Package 123 - Family-Friendly,Pokhara,2844.0,6,Safe and engaging activities for all ages.
+224,Package 124 - Cultural,Pokhara,2038.0,12,Explore historic landmarks and heritage sites.
+225,Package 125 - Adventure,Chitwan,2284.0,13,Experience the ultimate outdoor adventures.
+226,Package 126 - Luxury,Everest Base Camp,1323.0,4,Indulge in comfort and style.
+227,Package 127 - Eco-Tourism,Chitwan,2853.0,8,Connect with nature in a sustainable way.
+228,Package 128 - Adventure,Nagarkot,1696.0,6,Experience the ultimate outdoor adventures.
+229,Package 129 - Eco-Tourism,Kathmandu,1840.0,4,Explore pristine landscapes responsibly.
+230,Package 130 - Luxury,Everest Base Camp,2689.0,5,Pamper yourself with exclusive amenities.
+231,Package 131 - Family-Friendly,Pokhara,2198.0,7,Create unforgettable memories together.
+232,Package 132 - Family-Friendly,Lumbini,2123.0,4,Create unforgettable memories together.
+233,Package 133 - Eco-Tourism,Chitwan,2950.0,7,Explore pristine landscapes responsibly.
+234,Package 134 - Adventure,Everest Base Camp,1575.0,15,Experience the ultimate outdoor adventures.
+235,Package 135 - Eco-Tourism,Nagarkot,2200.0,15,Connect with nature in a sustainable way.
+236,Package 136 - Eco-Tourism,Kathmandu,1984.0,6,Connect with nature in a sustainable way.
+237,Package 137 - Cultural,Annapurna Circuit,1155.0,3,A journey through rich cultural landscapes.
+238,Package 138 - Cultural,Kathmandu,1399.0,14,Immerse yourself in local traditions.
+239,Package 139 - Eco-Tourism,Chitwan,2011.0,11,Explore pristine landscapes responsibly.
+240,Package 140 - Cultural,Nagarkot,2073.0,6,Immerse yourself in local traditions.
+241,Package 141 - Family-Friendly,Lumbini,2689.0,14,Fun-filled experiences for the whole family.
+242,Package 142 - Adventure,Everest Base Camp,1299.0,12,Thrilling activities for adrenaline seekers.
+243,Package 143 - Eco-Tourism,Lumbini,2721.0,6,Explore pristine landscapes responsibly.
+244,Package 144 - Family-Friendly,Lumbini,2181.0,5,Safe and engaging activities for all ages.
+245,Package 145 - Family-Friendly,Kathmandu,1080.0,14,Fun-filled experiences for the whole family.
+246,Package 146 - Luxury,Dhulikhel,1838.0,5,A lavish experience like no other.
+247,Package 147 - Eco-Tourism,Everest Base Camp,1058.0,12,Perfect for eco-conscious travelers.
+248,Package 148 - Cultural,Dhulikhel,2199.0,14,Explore historic landmarks and heritage sites.
+249,Package 149 - Adventure,Dhulikhel,935.0,11,Thrilling activities for adrenaline seekers.
+250,Package 150 - Eco-Tourism,Annapurna Circuit,1570.0,5,Connect with nature in a sustainable way.
