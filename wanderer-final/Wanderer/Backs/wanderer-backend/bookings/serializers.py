@@ -2,6 +2,7 @@ import datetime
 from rest_framework import serializers
 from .models import Booking
 from package.models import Hotel,Activity,PackageHotel
+from users.models import CustomUser
 
 
 class BookingSerializer(serializers.ModelSerializer):
@@ -12,6 +13,15 @@ class BookingSerializer(serializers.ModelSerializer):
         fields = ['id', 'user', 'package', 'full_name',
                   'phone_number','booking_date','number_of_people','stripe_checkout_session_id','hotel','activity']
         read_only_fields = ['id', 'user', 'status','stripe_checkout_session_id']
+
+class BookingHistorySerializer(serializers.ModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all())
+    package = serializers.CharField(source='package.name')
+    # Add other fields as needed, ensuring that any ForeignKey or ManyToManyField is serialized correctly.
+    
+    class Meta:
+        model = Booking
+        fields = '__all__'
 
     # def validate(self, data):
     #     # Get the selected package

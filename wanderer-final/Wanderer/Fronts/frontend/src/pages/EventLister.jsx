@@ -17,23 +17,6 @@ function EventLister() {
     description:"",
   });
 
-  const [bookings, setBookings] = useState([
-    {
-      id: 1,
-      customerName: "John Doe",
-      name: "Sky Diving",
-      bookingDate: "2025-01-20",
-      status: "Pending",
-    },
-    {
-      id: 2,
-      customerName: "Jane Smith",
-      name: "Mountain Hiking",
-      bookingDate: "2025-01-18",
-      status: "Pending",
-    },
-  ]);
-
   const handleLogout = () => {
     dispatch({ type: 'LOGOUT' });
     navigate('/');
@@ -186,14 +169,6 @@ function EventLister() {
     fetchUserEvents();
   }, []);
 
-  const handleBookingAction = (id, action) => {
-    setBookings(
-      bookings.map((booking) =>
-        booking.id === id ? { ...booking, status: action } : booking
-      )
-    );
-  };
-
   const renderPanel = () => {
     switch (activePanel) {
       case "listEvent":
@@ -294,56 +269,6 @@ function EventLister() {
             )}
           </div>
         );
-      case "customerBookings":
-        return (
-          <div>
-            <h2>Customer Booked Events</h2>
-            {bookings.length > 0 ? (
-              <table>
-                <thead>
-                  <tr>
-                    <th>Customer Name</th>
-                    <th>Event Name</th>
-                    <th>Booking Date</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {bookings.map((booking) => (
-                    <tr key={booking.id}>
-                      <td>{booking.customerName}</td>
-                      <td>{booking.name}</td>
-                      <td>{booking.bookingDate}</td>
-                      <td>{booking.status}</td>
-                      <td>
-                        {booking.status === "Pending" && (
-                          <>
-                            <button
-                              className="addy addy-accept"
-                              onClick={() => handleBookingAction(booking.id, "Accepted")}
-                            >
-                              Accept
-                            </button>
-                            <button
-                              className="addy addy-reject"
-                              onClick={() => handleBookingAction(booking.id, "Rejected")}
-                            >
-                              Reject
-                            </button>
-                          </>
-                        )}
-                        {booking.status !== "Pending" && <span>{booking.status}</span>}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <p>No customer bookings yet.</p>
-            )}
-          </div>
-        );
       default:
         return <div>Select a panel from the menu.</div>;
     }
@@ -365,12 +290,6 @@ function EventLister() {
             onClick={() => handlePanelChange("listedEvents")}
           >
             Listed Events
-          </li>
-          <li
-            className={activePanel === "customerBookings" ? "active" : ""}
-            onClick={() => handlePanelChange("customerBookings")}
-          >
-            Customer Booked Events
           </li>
           <li 
             className="logout-btn"

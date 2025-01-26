@@ -11,7 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Booking
-from .serializers import BookingSerializer
+from .serializers import BookingSerializer,BookingHistorySerializer
 from package.models import Package, Hotel, Activity
 from users.auth import admin_only
 from django.shortcuts import render, redirect
@@ -19,6 +19,7 @@ from django.contrib.auth.decorators import login_required
 from users.models import CustomUser
 from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
+from rest_framework import generics, permissions
 
 
 
@@ -73,7 +74,6 @@ class CreateBookingView(APIView):
                     'activity': data.get('activity', ''),
                 }
             )
-
             return Response({
                 'stripe_checkout_url': checkout_session.url,
                 'session_id': checkout_session.id,
@@ -318,7 +318,15 @@ class SellerDashboardView(APIView):
 
         # Return the prepared data
         return Response(data, status=status.HTTP_200_OK)
+    
+class BookingHistory(generics.ListAPIView):
+    serializer_class = BookingHistorySerializer
+    permission_classes = [permissions.IsAuthenticated]
 
+    def get_queryset(self):
+        user = self.request.user  # Access the authenticated user from the request
+        return Booking.objects.filter(user=user)  # Filter bookings based on the authenticated user
+    
 @csrf_exempt
 def stripe_webhook(request):
     payload = request.body

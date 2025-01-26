@@ -24,6 +24,10 @@ const nav__links = [
       path: '/diary',
       display: 'Diary'
    },
+   {
+      path: '/history',
+      display: 'History'
+   },
 ];
 
 const Header = () => {

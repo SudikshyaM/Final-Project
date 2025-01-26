@@ -31,6 +31,7 @@ const Register = () => {
                'Content-Type': 'application/json'
             },
             body: JSON.stringify(credentials)
+            
          });
 
          const result = await res.json();

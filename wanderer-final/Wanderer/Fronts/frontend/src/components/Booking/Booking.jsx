@@ -14,7 +14,7 @@ const Booking = ({ tour, avgRating, totalPrice, isCustomizedMode, hotels,activit
   const activityIds = activities.map((activity) => activity.id);
   const { reviews, id } = tour;
   const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext); 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [booking, setBooking] = useState({

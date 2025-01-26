@@ -25,18 +25,18 @@ review_df = review_df.rename(columns={'package_id': 'review_package_id'})
 merged_df = pd.merge(user_df, review_df, on='user_email')
 merged_df = pd.merge(merged_df, package_df[['package_id', 'name']], left_on='review_package_id', right_on='package_id')
 user_item_matrix = merged_df.pivot_table(index='user_email', columns='name', values='rating', aggfunc='mean').fillna(0)
-
+# print(user_item_matrix)
+print(user_item_matrix.head(10))
 
 # Collaborative Filtering Using Pearson Correlation
 user_corr = user_item_matrix.T.corr(method='pearson')  # User-user Pearson correlation matrix
-
+print(user_corr)
 
 # Content-Based Filtering
 def create_content_similarity_matrix(package_df):
     # Feature extraction from description using TfidfVectorizer
     tfidf = TfidfVectorizer(stop_words='english')
     description_matrix = tfidf.fit_transform(package_df['description'])
-
 
     # Normalize numerical features like base_price and duration
     scaler = MinMaxScaler()
@@ -49,15 +49,16 @@ def create_content_similarity_matrix(package_df):
         pd.get_dummies(package_df['location']),  # One-hot encoded location features
         package_df[['base_price', 'duration']]  # Normalized base_price and duration
     ], axis=1)
+    # print(features_matrix)
+    # print(features_matrix.head())
 
 
     # Compute the cosine similarity matrix from the combined features
     return cosine_similarity(features_matrix)
 
 
-
-
 cosine_sim_cb = create_content_similarity_matrix(package_df)
+print(cosine_sim_cb)
 
 
 # Popularity-Based Recommendation
@@ -111,6 +112,7 @@ def recommend_packages(data: PredictionRequest):
         if target_user not in user_corr.index:
             # Cold-start: Popularity-based for new users
             recommendations = get_popularity_based_recommendations(top_n=10)
+            print("popular",recommendations)
             return {"recommended_packages": recommendations.to_dict(orient='records')}
 
 
@@ -123,6 +125,7 @@ def recommend_packages(data: PredictionRequest):
                 if package not in user_recommendations:
                     user_recommendations[package] = []
                 user_recommendations[package].append(rating)
+        print("collaborative",user_recommendations)
 
 
         # Calculate average rating for each package
@@ -145,7 +148,7 @@ def recommend_packages(data: PredictionRequest):
                     if cb_package not in cb_recommendations:
                         cb_recommendations[cb_package] = 0
                     cb_recommendations[cb_package] += similarity
-
+        print("content",cb_recommendations)
 
         # Normalize scores
         if cf_scores:
@@ -170,13 +173,11 @@ def recommend_packages(data: PredictionRequest):
 
 
         # Debug logs (remove in production)
-        print(f"Target User: {target_user}")
-        print(f"User Interacted Packages: {list(user_interacted_packages)}")
-        print(f"CF Scores: {cf_scores}")
-        print(f"CB Scores: {cb_recommendations}")
+        # print(f"Target User: {target_user}")
+        # print(f"User Interacted Packages: {list(user_interacted_packages)}")
+        print(f"\n\n\n\n\nCF Scores: {cf_scores}")
+        print(f"\n\n\n\nCB Scores: {cb_recommendations}")
         print(f"Combined Scores: {combined_scores}")
-
-
         return {"recommended_packages": recommended_packages.to_dict(orient='records')}
    
     except Exception as e:

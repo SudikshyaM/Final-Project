@@ -15,8 +15,8 @@ from rest_framework.exceptions import PermissionDenied
 class EventUserPermission(permissions.BasePermission):
     def has_permission(self, request, view):
         print(request.user.role)
-        event = view.get_object()
-        if event.author == request.user:
+        # event = view.get_object()
+        if request.user.role == 'event_lister':
             return True
         else:
             raise PermissionDenied({"error": "You are not authorized for this view"})
@@ -73,7 +73,14 @@ class EventUpdateView(generics.UpdateAPIView):
 class EventDeleteView(generics.DestroyAPIView):
     queryset = Event.objects.all()
     serializer_class = EventSerializer
-    permission_classes = [EventUserPermission]
+    # permission_classes = [EventUserPermission]
+
+    def get_object(self):
+        obj = super().get_object()  # Retrieve the object based on the queryset and URL parameter
+        # Check if the logged-in user is the creator of the event
+        if obj.created_by != self.request.user:
+            raise PermissionDenied("You are not allowed to update this event.")
+        return obj
 
     def get_object(self):
         obj = super().get_object()

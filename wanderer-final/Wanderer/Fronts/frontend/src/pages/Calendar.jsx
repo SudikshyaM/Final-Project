@@ -128,7 +128,9 @@ const Calendar = () => {
             {(events[selectedDate] || [])
               .filter(event => !selectedLocation || event.location === selectedLocation)
               .map((event, index) => (
-                <li key={index}>{event.name} - {event.location}</li>
+                <li key={index}>{event.name} - {event.location}
+                <br />
+                {event.description}</li>
               )) || <p>No events for this day</p>}
           </ul>
         </div>

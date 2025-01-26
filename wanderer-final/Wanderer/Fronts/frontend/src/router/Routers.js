@@ -16,6 +16,7 @@ import AdminLogin from '../pages/AdminLogin'
 import CustomizeHotelsAndActivities from '../pages/CustomizeHotelsAndActivities'
 import Logout from '../pages/Logout'
 import TravelersDiary from '../pages/TravelersDiary'
+import BookingHistory from '../pages/BookingHistory'
 import TopDeals from '../components/Popular-destination/TopDeals'
 import Explore from '../pages/Explore'
 // import '../styles/NoLayout.css'
@@ -30,6 +31,7 @@ const Routers = () => {
          <Route path='/tours' element={<Tours/>} />
          <Route path='/package/:id' element={<TourDetails/>} />
          <Route path='/diary' element={<TravelersDiary/>}/>
+         <Route path='/history/' element={<BookingHistory/>}/>
          <Route path='/login' element={<Login/>} />
          <Route path='/logout' element={<Logout/>}/>
          <Route path='/register' element={<Register/>} />

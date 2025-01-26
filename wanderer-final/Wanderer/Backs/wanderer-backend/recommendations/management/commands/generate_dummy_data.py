@@ -58,7 +58,6 @@ class Command(BaseCommand):
 
 
 
-
     def create_dummy_hotels(self, num_hotels=40):
         hotel_owners = CustomUser.objects.filter(role="hotel_owner")  # Get all hotel owners
         if hotel_owners:
