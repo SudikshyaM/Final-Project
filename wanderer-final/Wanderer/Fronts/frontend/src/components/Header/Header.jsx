@@ -7,28 +7,6 @@ import './header.css';
 import { AuthContext } from '../../context/AuthContext';
 import { BASE_URL } from '../../utils/config';
 
-const nav__links = [
-   {
-      path: '/home',
-      display: 'Home'
-   },
-   {
-      path: '/about',
-      display: 'Packages'
-   },
-   {
-      path: '/destination',
-      display: 'Explore'
-   },
-   {
-      path: '/diary',
-      display: 'Diary'
-   },
-   {
-      path: '/history',
-      display: 'History'
-   },
-];
 
 const Header = () => {
    const headerRef = useRef(null);
@@ -55,6 +33,34 @@ const Header = () => {
       
       fetchPackages();
    }, []);
+
+
+const nav__links = [
+   {
+      path: '/home',
+      display: 'Home'
+   },
+   {
+      path: '/about',
+      display: 'Packages'
+   },
+   {
+      path: '/destination',
+      display: 'Explore'
+   },
+   {
+      path: '/diary',
+      display: 'Diary'
+   },
+   
+];
+if (user) {
+   nav__links.push({
+      path: '/history',
+      display: 'History'
+   });
+}
+
 
    // Toggle currency between NPR and USD
    // const toggleCurrency = () => {

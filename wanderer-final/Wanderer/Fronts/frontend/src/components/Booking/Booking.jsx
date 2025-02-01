@@ -166,16 +166,27 @@ const Booking = ({ tour, avgRating, totalPrice, isCustomizedMode, hotels,activit
   useEffect(() => {
     const confirmBookingIfNeeded = async () => {
       if (isSubmitting) return;
-
+  
       setIsSubmitting(true);
-
+  
       try {
         const urlParams = new URLSearchParams(window.location.search);
         const status = urlParams.get("status");
         const sessionId = urlParams.get("session_id");
-
+  
         if (status === "succeeded" && sessionId) {
+          // Check if the booking is already confirmed
+          const confirmedSessionId = localStorage.getItem("confirmed_session_id");
+          if (confirmedSessionId === sessionId) {
+            console.log("Booking already confirmed.");
+            return;
+          }
+  
           await confirmBooking();
+  
+          // Mark the session as confirmed
+          localStorage.setItem("confirmed_session_id", sessionId);
+          localStorage.removeItem("session_id"); // Clear the session ID
         }
       } catch (error) {
         console.error("Error confirming booking:", error);
@@ -183,10 +194,9 @@ const Booking = ({ tour, avgRating, totalPrice, isCustomizedMode, hotels,activit
         setIsSubmitting(false);
       }
     };
-
+  
     confirmBookingIfNeeded();
   }, [confirmBooking, isSubmitting]);
-
   return (
     <div className="booking">
       {error && (

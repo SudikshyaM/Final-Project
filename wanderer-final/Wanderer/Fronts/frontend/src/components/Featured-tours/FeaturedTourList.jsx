@@ -79,13 +79,13 @@ const FeaturedTourList = () => {
          {/* Pagination Controls */}
          {!loading && !error && featuredTours.length > itemsPerPage && (
             <div className="pagination-controls">
-               <Button color="primary" onClick={handlePrev} disabled={currentPage === 1}>
+               <Button className="btn primary__btn" onClick={handlePrev} disabled={currentPage === 1}>
                   Previous
                </Button>
                <span className="pagination-info">
                   Page {currentPage} of {totalPages}
                </span>
-               <Button color="primary" onClick={handleNext} disabled={currentPage === totalPages}>
+               <Button className="btn primary__btn" onClick={handleNext} disabled={currentPage === totalPages}>
                   Next
                </Button>
             </div>
