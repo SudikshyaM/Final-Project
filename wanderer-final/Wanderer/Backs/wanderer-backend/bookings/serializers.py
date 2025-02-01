@@ -3,6 +3,7 @@ from rest_framework import serializers
 from .models import Booking
 from package.models import Hotel,Activity,PackageHotel
 from users.models import CustomUser
+from package.serializers import PackageSerializer
 
 
 class BookingSerializer(serializers.ModelSerializer):
@@ -14,14 +15,23 @@ class BookingSerializer(serializers.ModelSerializer):
                   'phone_number','booking_date','number_of_people','stripe_checkout_session_id','hotel','activity']
         read_only_fields = ['id', 'user', 'status','stripe_checkout_session_id']
 
+from datetime import timedelta
+
+
 class BookingHistorySerializer(serializers.ModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=CustomUser.objects.all())
-    package = serializers.CharField(source='package.name')
-    # Add other fields as needed, ensuring that any ForeignKey or ManyToManyField is serialized correctly.
-    
+    package = PackageSerializer()
+    completion_date = serializers.SerializerMethodField()
+
     class Meta:
         model = Booking
-        fields = '__all__'
+        fields = '__all__'  # OR explicitly list all fields including 'completion_date'
+
+    def get_completion_date(self, obj):
+        if obj.booking_date and obj.package.duration:
+            return obj.booking_date + timedelta(days=obj.package.duration)
+        return None
+
 
     # def validate(self, data):
     #     # Get the selected package

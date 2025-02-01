@@ -12,7 +12,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import Booking
 from .serializers import BookingSerializer,BookingHistorySerializer
-from package.models import Package, Hotel, Activity
+from package.models import Package, Hotel, Activity, PackageHotel
 from users.auth import admin_only
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
@@ -101,6 +101,14 @@ class ConfirmBookingView(APIView):
 
             # Verify that payment was successful
             if checkout_session.payment_status == 'paid':
+                # Check if a booking with this session_id already exists
+                existing_booking = Booking.objects.filter(stripe_checkout_session_id=session_id).first()
+                if existing_booking:
+                    return Response(
+                        {'error': 'Booking already exists', 'booking': BookingSerializer(existing_booking).data},
+                        status=status.HTTP_400_BAD_REQUEST,
+                    )
+
                 # Extract metadata
                 metadata = checkout_session.metadata
                 package_id = metadata.get('package_id')
@@ -142,74 +150,6 @@ class ConfirmBookingView(APIView):
 
 
 
-# class ConfirmBookingView(APIView):
-#     permission_classes = [IsAuthenticated]
-
-#     def post(self, request):
-#         session_id = request.data.get('session_id')
-
-#         if not session_id:
-#             return Response({'error': 'Session ID is required'}, status=status.HTTP_400_BAD_REQUEST)
-
-#         try:
-#             # Retrieve the Stripe checkout session
-#             checkout_session = stripe.checkout.Session.retrieve(session_id)
-
-#             # Verify that payment was successful
-#             if checkout_session.payment_status == 'paid':
-#                 # Extract booking data from metadata
-#                 metadata = checkout_session.metadata
-#                 user_id = metadata.get('user_id')  # Ensure this is included
-#                 package_id = metadata.get('package_id')
-#                 number_of_people = metadata.get('number_of_people', 1)
-#                 booking_date = metadata.get('booking_date')
-#                 fullname = metadata.get('fullname')
-#                 phone = metadata.get('phone')
-
-#                 # Validate required metadata
-#                 if not (user_id and package_id and fullname and phone):
-#                     return Response(
-#                         {'error': 'Missing required metadata in the session'},
-#                         status=status.HTTP_400_BAD_REQUEST,
-#                     )
-
-#                 # Retrieve the user and package instances
-#                 try:
-#                     user = CustomUser.objects.get(id=user_id)
-#                     package = Package.objects.get(id=package_id)
-#                 except CustomUser.DoesNotExist:
-#                     return Response({'error': 'User not found'}, status=status.HTTP_404_NOT_FOUND)
-#                 except Package.DoesNotExist:
-#                     return Response({'error': 'Package not found'}, status=status.HTTP_404_NOT_FOUND)
-
-#                 # Prepare booking data
-#                 booking_data = {
-#                     'user': user,  # Pass the actual user instance
-#                     'package': package,  # Pass the package instance
-#                     'full_name': fullname,
-#                     'phone_number': phone,
-#                     'additional_notes': '',
-#                     'status': 'pending',  # Default status
-#                     'booking_date': booking_date,
-#                     'stripe_checkout_session_id': session_id,
-#                 }
-
-#                 # Serialize and save the booking
-#                 serializer = BookingSerializer(data=booking_data)
-#                 if serializer.is_valid():
-#                     booking = serializer.save()
-#                     return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-#                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#             return Response({'error': 'Payment not completed'}, status=status.HTTP_400_BAD_REQUEST)
-
-#         except stripe.error.StripeError as e:
-#             return Response({'error': str(e)}, status=status.HTTP_400_BAD_REQUEST)
-#         except Exception as e:
-#             return Response({'error': f'Unexpected error: {str(e)}'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
-
 class ListBookingsView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -225,17 +165,20 @@ class ListBookingsView(APIView):
 @admin_only
 def booking(request):
     items = Booking.objects.all()
-    hotels_mapping = {}  # To store hotels for each booking
+    hotels_mapping = {}  # To store hotels and days booked for each booking
     activities_mapping = {}  # To store activities for each booking
 
     for item in items:
         package = item.package
-        item_hotels = package.hotels.all()  # Assuming package has a related `hotels` field
-        item_activities = package.activities.all()  # Assuming package has a related `activities` field
-        
-        # Map hotels and activities to the booking
-        hotels_mapping[item.id] = [hotel.id for hotel in item_hotels]
-        activities_mapping[item.id] = item_activities
+        # Fetch hotels and days booked from PackageHotel
+        package_hotels = PackageHotel.objects.filter(package=package)
+        hotels_mapping[item.id] = [
+            f"{package_hotel.hotel.name} - {package_hotel.number_of_days} days"
+            for package_hotel in package_hotels
+        ]
+
+        # Fetch activities from the package
+        activities_mapping[item.id] = [activity.name for activity in package.activities.all()]
 
     context = {
         'items': items,
@@ -243,7 +186,6 @@ def booking(request):
         'activities_mapping': activities_mapping,
     }
     return render(request, 'bookings/bookings.html', context)
-
 
 
 class SellerDashboardView(APIView):

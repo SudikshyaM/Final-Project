@@ -22,7 +22,7 @@ class Booking(models.Model):
     phone_number = models.CharField(max_length=15, default='')
     additional_notes = models.TextField(blank=True, null=True)
     status = models.CharField(max_length=50, choices=STATUS, default='Pending')
-    booking_date = models.DateTimeField(auto_now_add=True)
+    booking_date = models.DateTimeField(auto_now_add=False)
     hotel = models.JSONField(default=list)
     activity = models.JSONField(default=list)
     stripe_checkout_session_id = models.CharField(max_length=255, null=True, blank=True)

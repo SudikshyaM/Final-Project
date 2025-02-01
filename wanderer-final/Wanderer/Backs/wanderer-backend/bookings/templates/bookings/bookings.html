@@ -42,70 +42,19 @@
                         <th>Phone Number</th>
                         <th>Package</th>
                         <th>No. of people</th>
-                        {% comment %} <th>Hotels</th>
-                        <th>Activities</th> {% endcomment %}
-                        <th>Booking date</th>
-                        {% comment %} <th>Action</th> {% endcomment %}
                     </tr>
                 </thead>
 
                 <tbody>
-                    {% comment %} {% for i in items %}
+                    {% for i in items %}
                     <tr>
                         <td>{{i.full_name}}</td>
                         <td>{{i.phone_number}}</td>
                         <td>{{i.package}}</td>
                         <td>{{i.number_of_people}}</td>
-                        <td> {% endcomment %}
-                            {% comment %} {% for hotel in i.item_hotels.all %}
-                              {{ hotel }}
-                          {% endfor %} {% endcomment %}
-                        {% comment %} </td>
-                        <td>
-                            {% for activity in activity %}
-                                 {{activity.name}}
-                            {% endfor %}
-                        </td>
-                        <td>{{i.booking_date}} </td> {% endcomment %}
-                       <!-- <td>  {{i.payment_method}} </td> -->
-                       {% comment %} <td>
-                        <a href="" class="btn btn-success">View Details</a>
-                       </td>
-                    </tr> {% endcomment %}
-
-                    
-
-                    {% comment %} {% endfor %} {% endcomment %}
-                    {% for i in items %}
-                    <tr>
-                        <td>{{ i.full_name }}</td>
-                        <td>{{ i.phone_number }}</td>
-                        <td>{{ i.package }}</td>
-                        <td>{{ i.number_of_people }}</td>
-                        {% comment %} <td>
-                            {% for hotel_id in hotels_mapping.i.id %}
-                                {% with hotel=hotel_id %}
-                                    {% if hotel %}
-                                        {% for h in hotel %}
-                                            {{ h.name }}
-                                        {% endfor %}
-                                    {% endif %}
-                                {% endwith %}
-                            {% endfor %}
-                        </td>
-                        <td>
-                            {% for activity in activities_mapping.i.id %}
-                                {{ activity.name }}
-                            {% endfor %}
-                        </td> {% endcomment %}
-                        <td>{{ i.booking_date }}</td>
-                        {% comment %} <td>
-                            <a href="" class="btn btn-success">View Details</a>
-                        </td> {% endcomment %}
-                    </tr>
-                {% endfor %}
-                
-
+                        <td>{{i.booking_date}} </td>    
+                    </tr> 
+                  {% endfor %} 
                 </tbody>
             </table>
 
